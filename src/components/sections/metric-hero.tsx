@@ -67,11 +67,11 @@ export function MetricHero() {
               </HeroContent>
             </div>
 
-            <HeroImage delay={0.4} className="relative hidden lg:flex lg:items-center lg:justify-end h-full">
+            <HeroImage delay={0.4} className="relative hidden lg:flex lg:items-end lg:justify-end h-full">
               <img
                 src="https://iili.io/fEFQ9KN.png"
                 alt="Platform Dashboard"
-                className="relative z-10 w-auto h-full max-h-[80vh] object-contain object-center"
+                className="relative z-10 w-auto h-full max-h-[80vh] object-contain object-right-bottom"
               />
             </HeroImage>
           </div>
