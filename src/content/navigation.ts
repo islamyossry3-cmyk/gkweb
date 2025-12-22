@@ -3,14 +3,12 @@ import { deliveryTypes } from './deliveryTypes';
 
 export const nav = {
   main: [
-    { label: 'Platform', href: '/platform' },
     { label: 'Solutions', href: '/solutions', mega: 'solutions' as const },
     { label: 'Products', href: '/products', mega: 'products' as const },
     { label: 'Methodology', href: '/methodology' },
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'Resources', href: '/resources' },
-    { label: 'Team', href: '/team' },
-    { label: 'Careers', href: '/careers' }
+    { label: 'Team', href: '/team' }
   ],
   ctas: [
     { label: 'Book a Diagnosis', href: '/contact?intent=diagnosis', variant: 'secondary' as const },

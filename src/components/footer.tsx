@@ -37,6 +37,7 @@ export function Footer() {
                 <li><Link className="hover:text-slate-900" href="/security">Security & Data</Link></li>
                 <li><Link className="hover:text-slate-900" href="/ethics-psychometrics">Psychometrics Ethics</Link></li>
                 <li><Link className="hover:text-slate-900" href="/team">Team</Link></li>
+                <li><Link className="hover:text-slate-900" href="/careers">Careers</Link></li>
               </ul>
             </div>
 

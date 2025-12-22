@@ -116,7 +116,7 @@ export function Header() {
             transition={{ duration: 0.22 }}
             className="hidden lg:block"
           >
-            <MegaPanel mega={openMega} />
+            <MegaPanel mega={openMega} onClose={() => setOpenMega(null)} />
           </motion.div>
         ) : null}
       </AnimatePresence>
@@ -192,7 +192,7 @@ export function Header() {
   );
 }
 
-function MegaPanel({ mega }: { mega: MegaKey }) {
+function MegaPanel({ mega, onClose }: { mega: MegaKey; onClose: () => void }) {
   const data = nav.mega[mega];
 
   return (
@@ -208,6 +208,7 @@ function MegaPanel({ mega }: { mega: MegaKey }) {
                     key={it.href}
                     href={it.href}
                     className="group rounded-xl p-3 transition hover:bg-slate-50"
+                    onClick={onClose}
                   >
                     <div className="flex items-center justify-between gap-2">
                       <div className="text-sm font-semibold text-slate-900">{it.label}</div>
@@ -230,6 +231,7 @@ function MegaPanel({ mega }: { mega: MegaKey }) {
                   key={h.href}
                   href={h.href}
                   className="group rounded-xl bg-white/70 p-4 ring-1 ring-slate-200/70 transition hover:bg-white"
+                  onClick={onClose}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-sm font-semibold text-slate-900">{h.title}</div>
@@ -242,12 +244,12 @@ function MegaPanel({ mega }: { mega: MegaKey }) {
 
             <div className="mt-5 rounded-xl bg-slate-950 p-4 text-white">
               <div className="text-xs font-semibold text-white/70">Need the cleanest starting point?</div>
-              <div className="mt-1 text-sm font-bold">We’ll recommend a path in 30 minutes.</div>
+              <div className="mt-1 text-sm font-bold">We'll recommend a path in 30 minutes.</div>
               <div className="mt-3 flex gap-2">
-                <Link href="/contact?intent=diagnosis" className={cn(buttonClasses('secondary'), 'px-3 py-2 text-xs')}>
+                <Link href="/contact?intent=diagnosis" className={cn(buttonClasses('secondary'), 'px-3 py-2 text-xs')} onClick={onClose}>
                   Book a Diagnosis
                 </Link>
-                <Link href="/contact?intent=demo" className={cn(buttonClasses('secondary'), 'px-3 py-2 text-xs')}>
+                <Link href="/contact?intent=demo" className={cn(buttonClasses('secondary'), 'px-3 py-2 text-xs')} onClick={onClose}>
                   Request Demo
                 </Link>
               </div>
