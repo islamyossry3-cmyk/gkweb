@@ -58,7 +58,12 @@ export function MetricHero() {
           </div>
 
           <div className="relative hidden lg:flex lg:items-center lg:justify-end h-full">
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl" />
+            <div className="absolute right-24 top-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full">
+              <div className="absolute inset-0 rounded-full bg-white/[0.08] backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)]" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 via-transparent to-transparent" />
+              <div className="absolute inset-[2px] rounded-full bg-gradient-to-tl from-white/10 via-transparent to-transparent" />
+              <div className="absolute top-4 left-8 right-8 h-24 rounded-full bg-gradient-to-b from-white/15 to-transparent blur-sm" />
+            </div>
             <img
               src="https://iili.io/fEdurba.gif"
               alt="Platform Dashboard"
