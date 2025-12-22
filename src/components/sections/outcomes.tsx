@@ -41,23 +41,29 @@ export function OutcomesSection() {
   return (
     <section className="relative py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal>
+        <Reveal enableOutro>
           <div className="flex flex-col gap-3">
-            <Badge className="w-fit bg-[linear-gradient(135deg,rgba(12,85,74,0.10),rgba(246,119,130,0.10))] text-slate-800 ring-slate-900/10">
-              Six outcomes. One integrated system.
-            </Badge>
-            <h2 className="font-display text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              We don’t sell “HR activities.” We engineer measurable outcomes.
-            </h2>
-            <p className="max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
-              Each module is built to move an outcome—then connect back into one operating cockpit for People & Culture leadership.
-            </p>
+            <Reveal variant="fade" delay={0.1}>
+              <Badge className="w-fit bg-[linear-gradient(135deg,rgba(12,85,74,0.10),rgba(246,119,130,0.10))] text-slate-800 ring-slate-900/10">
+                Six outcomes. One integrated system.
+              </Badge>
+            </Reveal>
+            <Reveal variant="slideUp" delay={0.2}>
+              <h2 className="font-display text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                We don't sell "HR activities." We engineer measurable outcomes.
+              </h2>
+            </Reveal>
+            <Reveal variant="slideUp" delay={0.3}>
+              <p className="max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+                Each module is built to move an outcome—then connect back into one operating cockpit for People & Culture leadership.
+              </p>
+            </Reveal>
           </div>
         </Reveal>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {outcomes.map((o, idx) => (
-            <Reveal key={o.title} delay={0.05 * idx}>
+            <Reveal key={o.title} delay={0.05 * idx} variant="scale" enableOutro>
               <TiltCard className="h-full">
                 <div
                   className={cn(
