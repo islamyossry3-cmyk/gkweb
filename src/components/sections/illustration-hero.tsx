@@ -18,7 +18,7 @@ export function IllustrationHero({
   primaryCta?: { label: string; href: string };
 }) {
   return (
-    <section className="relative min-h-[85vh] lg:min-h-[95vh] overflow-hidden pt-16 lg:pt-24" style={{
+    <section className="relative min-h-screen overflow-hidden pt-20" style={{
       backgroundImage: 'url(/hero-bg.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -30,8 +30,8 @@ export function IllustrationHero({
       <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl z-0" />
       <FloatingParticles className="absolute inset-0 z-10 pointer-events-none" count={200} />
 
-      <div className="relative z-20 mx-auto max-w-7xl px-6 py-8 lg:py-12 h-full flex items-center">
-        <div className="grid items-center gap-12 lg:grid-cols-2 w-full">
+      <div className="relative z-20 mx-auto max-w-7xl px-6 h-full flex items-center min-h-[calc(100vh-5rem)]">
+        <div className="grid items-center gap-8 lg:grid-cols-2 w-full py-8">
           <div className="space-y-6 lg:space-y-8">
             <motion.h1
               className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
@@ -70,24 +70,20 @@ export function IllustrationHero({
             )}
           </div>
 
-          <div className="relative hidden lg:block">
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
-            >
-              <div className="relative h-[600px] w-full">
-                <Image
-                  src={imageSrc}
-                  alt="Hero Illustration"
-                  fill
-                  className="object-contain object-center"
-                  priority
-                />
-              </div>
-            </motion.div>
-          </div>
+          <motion.div
+            className="relative hidden lg:block w-full h-full min-h-[650px]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+          >
+            <Image
+              src={imageSrc}
+              alt="Hero Illustration"
+              fill
+              className="object-contain object-center"
+              priority
+            />
+          </motion.div>
         </div>
       </div>
     </section>

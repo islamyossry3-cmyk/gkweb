@@ -1446,6 +1446,15 @@ video {
 .min-h-\[80vh\] {
   min-height: 80vh;
 }
+.min-h-\[650px\] {
+  min-height: 650px;
+}
+.min-h-\[calc\(100vh-5rem\)\] {
+  min-height: calc(100vh - 5rem);
+}
+.min-h-screen {
+  min-height: 100vh;
+}
 .w-1\.5 {
   width: 0.375rem;
 }
