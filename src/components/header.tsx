@@ -59,7 +59,7 @@ export function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-2 lg:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {nav.main.map((item) => {
             const isMega = 'mega' in item;
             return (
@@ -67,7 +67,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'inline-flex items-center gap-1 rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-900/5',
+                    'inline-flex items-center gap-1 rounded-xl px-2.5 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-900/5 whitespace-nowrap',
                     openMega && 'mega' in item && item.mega === openMega && 'bg-slate-900/5'
                   )}
                   onMouseEnter={() => {
@@ -87,9 +87,9 @@ export function Header() {
         </nav>
 
         {/* CTAs */}
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           {nav.ctas.map((cta) => (
-            <Link key={cta.label} href={cta.href} className={buttonClasses(cta.variant === 'primary' ? 'primary' : 'ghost')}>
+            <Link key={cta.label} href={cta.href} className={cn(buttonClasses(cta.variant === 'primary' ? 'primary' : 'ghost'), 'whitespace-nowrap')}>
               {cta.label}
             </Link>
           ))}

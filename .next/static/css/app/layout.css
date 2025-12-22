@@ -1749,6 +1749,9 @@ video {
 .overflow-visible {
   overflow: visible;
 }
+.whitespace-nowrap {
+  white-space: nowrap;
+}
 .rounded-2xl {
   border-radius: 1rem;
 }
@@ -2146,6 +2149,10 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 .pb-16 {
   padding-bottom: 4rem;
