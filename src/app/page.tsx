@@ -4,6 +4,7 @@ import { OutcomesSection } from '@/components/sections/outcomes';
 import { Reveal } from '@/components/effects/reveal';
 import { MatrixNavigator } from '@/components/sections/matrix-navigator';
 import { ProductCard } from '@/components/product-card';
+import { BrandCard } from '@/components/ui/card';
 import { products } from '@/content/products';
 
 export default function HomePage() {
@@ -26,6 +27,60 @@ export default function HomePage() {
       />
 
       <OutcomesSection />
+
+      <section className="relative bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <Reveal>
+            <div className="text-center">
+              <div className="text-sm font-bold text-brand-green">Our Approach</div>
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-green sm:text-4xl lg:text-5xl">
+                The Recipe for Effectiveness
+              </h2>
+              <p className="mt-4 text-base text-slate-700">
+                Three core principles that make our solutions work
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              <BrandCard variant="green" className="flex min-h-[400px] flex-col justify-between">
+                <div>
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-3xl">
+                    🎯
+                  </div>
+                  <h3 className="text-2xl font-bold">Customization</h3>
+                  <p className="mt-4 text-base leading-relaxed text-white/90">
+                    Every solution is tailored to your organization's unique culture, challenges, and goals. No cookie-cutter approaches.
+                  </p>
+                </div>
+              </BrandCard>
+
+              <BrandCard variant="green" className="flex min-h-[400px] flex-col justify-between">
+                <div>
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-3xl">
+                    🔍
+                  </div>
+                  <h3 className="text-2xl font-bold">Deep Insights</h3>
+                  <p className="mt-4 text-base leading-relaxed text-white/90">
+                    Data-driven diagnostics reveal what's really happening beneath the surface, enabling precise interventions.
+                  </p>
+                </div>
+              </BrandCard>
+
+              <BrandCard variant="pink" className="flex min-h-[400px] flex-col justify-between">
+                <div>
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-3xl">
+                    ⚡
+                  </div>
+                  <h3 className="text-2xl font-bold">Focus</h3>
+                  <p className="mt-4 text-base leading-relaxed text-white/90">
+                    Clear priorities and actionable steps ensure your team knows exactly what to do next and why it matters.
+                  </p>
+                </div>
+              </BrandCard>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="relative py-20">
         <div className="mx-auto max-w-7xl px-6">
