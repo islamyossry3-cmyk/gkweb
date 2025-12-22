@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import { PageHero } from '@/components/sections/page-hero';
+import { MetricHero } from '@/components/sections/metric-hero';
 import { OutcomesSection } from '@/components/sections/outcomes';
 import { Reveal } from '@/components/effects/reveal';
 import { MatrixNavigator } from '@/components/sections/matrix-navigator';
 import { ProductCard } from '@/components/product-card';
 import { BrandCard } from '@/components/ui/card';
+import { Lightbulb, Target, Sparkles } from 'lucide-react';
 import { products } from '@/content/products';
 
 export default function HomePage() {
@@ -17,23 +18,16 @@ export default function HomePage() {
 
   return (
     <>
-      <PageHero
-        kicker="MENA • Enterprise-ready • Behavioral science + AI + gamification"
-        title="People & Culture, Engineered."
-        subtitle="GoldinKollar builds integrated people and culture systems—powered by behavioral science, AI, and gamification—to drive measurable attraction, retention, performance, engagement, advocacy, and compliance across the MENA region."
-        primaryCta={{ label: 'Request a Demo', href: '/contact?intent=demo' }}
-        secondaryCta={{ label: 'Book a Diagnosis', href: '/contact?intent=diagnosis' }}
-        right={<HeroMock />}
-      />
+      <MetricHero />
 
       <OutcomesSection />
 
-      <section className="relative bg-white py-24">
+      <section className="relative bg-brand-surface py-24">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <div className="text-center">
               <div className="text-sm font-bold text-brand-green">Our Approach</div>
-              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-green sm:text-4xl lg:text-5xl">
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl lg:text-5xl">
                 The Recipe for Effectiveness
               </h2>
               <p className="mt-4 text-base text-slate-700">
@@ -42,10 +36,10 @@ export default function HomePage() {
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">
-              <BrandCard variant="green" className="flex min-h-[400px] flex-col justify-between">
+              <BrandCard variant="dark" className="flex min-h-[400px] flex-col justify-between">
                 <div>
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-3xl">
-                    🎯
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-green/20">
+                    <Target className="h-8 w-8 stroke-[1.5px] text-brand-blue" />
                   </div>
                   <h3 className="text-2xl font-bold">Customization</h3>
                   <p className="mt-4 text-base leading-relaxed text-white/90">
@@ -54,10 +48,10 @@ export default function HomePage() {
                 </div>
               </BrandCard>
 
-              <BrandCard variant="green" className="flex min-h-[400px] flex-col justify-between">
+              <BrandCard variant="dark" className="flex min-h-[400px] flex-col justify-between">
                 <div>
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-3xl">
-                    🔍
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-green/20">
+                    <Lightbulb className="h-8 w-8 stroke-[1.5px] text-brand-blue" />
                   </div>
                   <h3 className="text-2xl font-bold">Deep Insights</h3>
                   <p className="mt-4 text-base leading-relaxed text-white/90">
@@ -66,10 +60,10 @@ export default function HomePage() {
                 </div>
               </BrandCard>
 
-              <BrandCard variant="pink" className="flex min-h-[400px] flex-col justify-between">
+              <BrandCard variant="accent" className="flex min-h-[400px] flex-col justify-between">
                 <div>
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-3xl">
-                    ⚡
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20">
+                    <Sparkles className="h-8 w-8 stroke-[1.5px] text-white" />
                   </div>
                   <h3 className="text-2xl font-bold">Focus</h3>
                   <p className="mt-4 text-base leading-relaxed text-white/90">
@@ -182,21 +176,24 @@ export default function HomePage() {
 
       <MatrixNavigator />
 
-      <section className="relative py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="overflow-hidden rounded-3xl bg-slate-950 p-10 text-white">
-            <div className="relative">
-              <div className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(12,85,74,0.30),transparent_60%)] blur-3xl" />
-              <div className="absolute -right-24 -bottom-24 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(246,119,130,0.25),transparent_60%)] blur-3xl" />
+      <section className="hero-gradient relative py-20">
+        <div className="noise-overlay" />
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="relative overflow-hidden rounded-3xl border border-brand-sage/20 bg-brand-dark p-10 text-white">
+            <div className="noise-overlay rounded-3xl" />
+
+            <div className="relative z-10">
+              <div className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-brand-green/20 blur-3xl" />
+              <div className="absolute -right-24 -bottom-24 h-80 w-80 rounded-full bg-brand-pink/20 blur-3xl" />
 
               <div className="relative grid items-center gap-8 lg:grid-cols-12">
                 <div className="lg:col-span-7">
-                  <div className="text-xs font-semibold text-white/70">Ready to see your fastest path?</div>
+                  <div className="text-xs font-semibold text-brand-blue">Ready to see your fastest path?</div>
                   <h3 className="mt-3 font-display text-3xl font-semibold tracking-tight">
                     Book a Diagnosis—get a tailored recommendation in 30 minutes
                   </h3>
                   <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/75">
-                    We’ll identify your biggest leverage point and recommend the cleanest starting module—then map how it connects into an integrated system.
+                    We'll identify your biggest leverage point and recommend the cleanest starting module—then map how it connects into an integrated system.
                   </p>
                 </div>
                 <div className="lg:col-span-5">
@@ -215,58 +212,5 @@ export default function HomePage() {
         </div>
       </section>
     </>
-  );
-}
-
-function HeroMock() {
-  return (
-    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5">
-      <div className="absolute -right-12 -top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(246,119,130,0.25),transparent_60%)] blur-3xl" />
-      <div className="absolute -left-10 -bottom-12 h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(12,85,74,0.25),transparent_60%)] blur-3xl" />
-
-      <div className="relative">
-        <div className="flex items-center justify-between">
-          <div className="text-xs font-semibold text-white/70">Command Center</div>
-          <div className="rounded-full bg-white/10 px-3 py-1 text-[10px] font-semibold text-white/70 ring-1 ring-white/10">
-            Live
-          </div>
-        </div>
-
-        <div className="mt-4 grid gap-3 md:grid-cols-2">
-          {[
-            { label: 'Attraction', value: '+18%' },
-            { label: 'Retention', value: '+12%' },
-            { label: 'Performance', value: '+9%' },
-            { label: 'Engagement', value: '+15%' }
-          ].map((k) => (
-            <div key={k.label} className="rounded-xl bg-white/5 p-4 ring-1 ring-white/10">
-              <div className="text-[10px] font-semibold text-white/60">{k.label}</div>
-              <div className="mt-1 text-xl font-semibold">{k.value}</div>
-              <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
-                <div className="h-full w-2/3 animate-shimmer bg-[linear-gradient(90deg,rgba(12,85,74,0.0),rgba(12,85,74,0.9),rgba(246,119,130,0.9),rgba(246,119,130,0.0))] bg-[length:200%_200%]" />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-4 rounded-xl bg-white/5 p-4 ring-1 ring-white/10">
-          <div className="text-[10px] font-semibold text-white/60">Recommended next actions</div>
-          <ul className="mt-2 space-y-2 text-xs text-white/75">
-            <li className="flex items-center justify-between">
-              <span>Launch onboarding milestone program (30/60/90)</span>
-              <span className="text-white/50">EX</span>
-            </li>
-            <li className="flex items-center justify-between">
-              <span>Run compliance “Spot the Problem” campaign</span>
-              <span className="text-white/50">IC</span>
-            </li>
-            <li className="flex items-center justify-between">
-              <span>Deploy culture diagnostic to top 3 units</span>
-              <span className="text-white/50">Culture</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
   );
 }

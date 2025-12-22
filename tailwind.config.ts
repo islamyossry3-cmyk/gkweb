@@ -7,10 +7,12 @@ export default {
     extend: {
       colors: {
         brand: {
-          green: '#0c554a',
-          pink: '#f67782',
-          mint: '#f4f9f8',
-          'mint-light': '#e6f0ee'
+          dark: '#0C5146',
+          green: '#2D9766',
+          sage: '#61A887',
+          pink: '#EC7281',
+          blue: '#AFE0EE',
+          surface: '#F4F9F8'
         },
         ink: {
           50: '#F7FAFC',
