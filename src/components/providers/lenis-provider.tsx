@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import Lenis from '@studio-freight/lenis';
+import Lenis from 'lenis';
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   React.useEffect(() => {
@@ -11,8 +11,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      smoothTouch: false
+      smoothWheel: true
     });
 
     let raf = 0;

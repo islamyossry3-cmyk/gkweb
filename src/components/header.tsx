@@ -61,21 +61,21 @@ export function Header() {
         {/* Desktop nav */}
         <nav className="hidden items-center gap-2 lg:flex">
           {nav.main.map((item) => {
-            const isMega = !!item.mega;
+            const isMega = 'mega' in item;
             return (
               <div key={item.label} className="relative">
                 <Link
                   href={item.href}
                   className={cn(
                     'inline-flex items-center gap-1 rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-900/5',
-                    openMega && item.mega === openMega && 'bg-slate-900/5'
+                    openMega && 'mega' in item && item.mega === openMega && 'bg-slate-900/5'
                   )}
                   onMouseEnter={() => {
-                    if (isMega) setOpenMega(item.mega!);
+                    if (isMega && 'mega' in item) setOpenMega(item.mega);
                     else setOpenMega(null);
                   }}
                   onFocus={() => {
-                    if (isMega) setOpenMega(item.mega!);
+                    if (isMega && 'mega' in item) setOpenMega(item.mega);
                   }}
                 >
                   {item.label}
