@@ -1425,6 +1425,9 @@ video {
 .h-auto {
   height: auto;
 }
+.h-\[600px\] {
+  height: 600px;
+}
 .min-h-\[120px\] {
   min-height: 120px;
 }
@@ -1955,6 +1958,10 @@ video {
 .stroke-\[1\.5px\] {
   stroke-width: 1.5px;
 }
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -2051,6 +2058,10 @@ video {
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .pb-16 {
   padding-bottom: 4rem;
@@ -2685,6 +2696,10 @@ body {
     min-height: 90vh;
   }
 
+  .lg\:min-h-\[95vh\] {
+    min-height: 95vh;
+  }
+
   .lg\:grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
@@ -2731,8 +2746,17 @@ body {
     padding: 2rem;
   }
 
+  .lg\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
   .lg\:pt-32 {
     padding-top: 8rem;
+  }
+
+  .lg\:pt-24 {
+    padding-top: 6rem;
   }
 
   .lg\:text-5xl {
