@@ -54,8 +54,8 @@ export function Reveal({
   children,
   delay = 0,
   variant = 'slideUp',
-  amount = 20,
-  duration = 0.6
+  amount = 40,
+  duration = 1.2
 }: {
   children: React.ReactNode;
   delay?: number;

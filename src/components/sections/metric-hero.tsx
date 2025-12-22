@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Zap } from 'lucide-react';
 import { AnimatedWord } from '@/components/effects/animated-word';
-import { FloatingParticles } from '@/components/effects/floating-particles';
+import { LiquidBlobs } from '@/components/effects/liquid-blobs';
 
 export function MetricHero() {
   return (
@@ -21,7 +21,7 @@ export function MetricHero() {
       <div className="noise-overlay z-0" />
       <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl z-0" />
       <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl z-0" />
-      <FloatingParticles className="absolute inset-0 z-10 pointer-events-none" count={120} />
+      <LiquidBlobs className="absolute inset-0 z-10 pointer-events-none" count={15} />
 
       <div className="relative z-20 mx-auto max-w-7xl pl-6 h-[calc(100vh-4rem)] flex items-end pb-0">
         <div className="grid items-end gap-8 lg:grid-cols-2 w-full pb-0">
