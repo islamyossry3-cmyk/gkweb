@@ -38,11 +38,10 @@ export function FloatingParticles({
     if (!ctx) return;
 
     const greenColors = [
-      'rgba(91, 176, 130, 0.6)',
-      'rgba(91, 176, 130, 0.4)',
-      'rgba(12, 85, 74, 0.6)',
-      'rgba(12, 85, 74, 0.4)',
-      'rgba(91, 176, 130, 0.8)',
+      '#5bb082',
+      '#0c554a',
+      '#5bb082',
+      '#0c554a',
     ];
 
     const resize = () => {
@@ -55,10 +54,10 @@ export function FloatingParticles({
       particlesRef.current = new Array(count).fill(null).map(() => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 1.5 + 0.5,
-        opacity: Math.random() * 0.5 + 0.3,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.6 + 0.4,
         color: greenColors[Math.floor(Math.random() * greenColors.length)]
       }));
     };
@@ -81,6 +80,8 @@ export function FloatingParticles({
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
+        ctx.shadowBlur = 2;
+        ctx.shadowColor = p.color;
         ctx.fillStyle = p.color;
         ctx.globalAlpha = p.opacity;
         ctx.beginPath();
@@ -88,6 +89,7 @@ export function FloatingParticles({
         ctx.fill();
       }
 
+      ctx.shadowBlur = 0;
       ctx.globalAlpha = 1;
       rafRef.current = window.requestAnimationFrame(draw);
     };

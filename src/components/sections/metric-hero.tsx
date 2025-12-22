@@ -7,55 +7,54 @@ import { FloatingParticles } from '@/components/effects/floating-particles';
 
 export function MetricHero() {
   return (
-    <section className="relative min-h-[90vh] overflow-hidden pt-24 lg:pt-32" style={{
+    <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden pt-20 lg:pt-32" style={{
       backgroundImage: 'url(/hero-bg.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     }}>
-      <div className="absolute inset-0 bg-brand-dark/40" />
-      <div className="noise-overlay" />
-      <FloatingParticles className="absolute inset-0 z-10" count={150} />
+      <div className="absolute inset-0 bg-brand-dark/40 z-0" />
+      <div className="noise-overlay z-0" />
+      <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl z-0" />
+      <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl z-0" />
+      <FloatingParticles className="absolute inset-0 z-10 pointer-events-none" count={200} />
 
-      <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl" />
-
-      <div className="relative z-20 mx-auto max-w-7xl px-6">
+      <div className="relative z-20 mx-auto max-w-7xl px-6 py-12">
         <div className="grid items-center gap-12 lg:grid-cols-2">
 
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand-sage/30 bg-brand-dark/50 px-4 py-2 text-sm font-semibold text-brand-blue backdrop-blur">
               <Zap className="h-4 w-4 stroke-[1.5px]" />
               MENA • Enterprise-ready • AI-Powered
             </div>
 
-            <h1 className="font-display text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl overflow-visible" style={{ lineHeight: '1.3' }}>
               People & Culture, <AnimatedWord />
             </h1>
 
-            <p className="max-w-xl text-lg leading-relaxed text-white/80">
+            <p className="max-w-xl text-base sm:text-lg leading-relaxed text-white/80">
               Integrated systems powered by behavioral science, AI, and gamification to drive measurable outcomes across attraction, retention, performance, and engagement.
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link
                 href="/contact?intent=demo"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand-pink px-6 py-4 text-base font-bold text-white shadow-lg transition hover:-translate-y-1 hover:bg-brand-pink/90"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand-pink px-6 py-3 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg transition hover:-translate-y-1 hover:bg-brand-pink/90"
               >
                 Request Demo
-                <ArrowRight className="h-5 w-5 stroke-[1.5px] transition group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 stroke-[1.5px] transition group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/contact?intent=diagnosis"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl border border-brand-sage/30 bg-white/5 px-6 py-4 text-base font-bold text-white backdrop-blur transition hover:-translate-y-1"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl border border-brand-sage/30 bg-white/5 px-6 py-3 sm:py-4 text-sm sm:text-base font-bold text-white backdrop-blur transition hover:-translate-y-1"
               >
                 Book Diagnosis
               </Link>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="glass-card relative space-y-6 rounded-3xl p-8">
+          <div className="relative hidden lg:block">
+            <div className="glass-card relative space-y-6 rounded-3xl p-6 lg:p-8">
               <div className="noise-overlay rounded-3xl" />
 
               <div className="relative z-10">
