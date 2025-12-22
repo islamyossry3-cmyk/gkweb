@@ -183,7 +183,7 @@ export default function HomePage() {
 
       <section className="relative py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="slideLeft" enableOutro>
+          <Reveal variant="slideLeft">
             <div className="flex items-end justify-between gap-6">
               <div>
                 <Reveal variant="fade" delay={0.1}>
@@ -211,7 +211,7 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {featured.map((p, i) => (
-              <Reveal key={p!.slug} variant="scale" delay={0.1 * i} enableOutro>
+              <Reveal key={p!.slug} variant="scale" delay={0.1 * i}>
                 <ProductCard product={p!} />
               </Reveal>
             ))}
