@@ -35,7 +35,7 @@ export function MetricHero() {
               </HeroContent>
 
               <HeroContent delay={0.35} direction="up">
-                <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl overflow-visible" style={{ lineHeight: '1.3' }}>
+                <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl overflow-visible" style={{ lineHeight: '1.3', textShadow: '0 4px 20px rgba(12, 85, 74, 0.6), 0 2px 10px rgba(12, 85, 74, 0.4)' }}>
                   People & Culture, <AnimatedWord />
                 </h1>
               </HeroContent>

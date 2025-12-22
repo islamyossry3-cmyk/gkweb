@@ -46,11 +46,13 @@ export default function HomePage() {
             <Reveal variant="slideRight" delay={0.2} enableOutro>
               <BrandCard variant="sage" className="flex min-h-[400px] flex-col justify-between">
                 <div>
-                  <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-blue/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-                    Tailored
-                  </div>
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20">
-                    <Target className="h-8 w-8 stroke-[1.5px] text-white" />
+                  <div className="mb-6 flex items-center justify-between">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-brand-blue/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                      Tailored
+                    </div>
+                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20">
+                      <Target className="h-8 w-8 stroke-[1.5px] text-white" />
+                    </div>
                   </div>
                   <h3 className="text-2xl font-bold">Customization</h3>
                   <p className="mt-4 text-base leading-relaxed text-white/90">
@@ -63,11 +65,13 @@ export default function HomePage() {
             <Reveal variant="slideUp" delay={0.3} enableOutro>
               <BrandCard variant="dark" className="flex min-h-[400px] flex-col justify-between">
                 <div>
-                  <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-blue/20 px-3 py-1 text-xs font-semibold text-brand-blue backdrop-blur">
-                    Data-Driven
-                  </div>
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-green/20">
-                    <Lightbulb className="h-8 w-8 stroke-[1.5px] text-brand-blue" />
+                  <div className="mb-6 flex items-center justify-between">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-brand-blue/20 px-3 py-1 text-xs font-semibold text-brand-blue backdrop-blur">
+                      Data-Driven
+                    </div>
+                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-green/20">
+                      <Lightbulb className="h-8 w-8 stroke-[1.5px] text-brand-blue" />
+                    </div>
                   </div>
                   <h3 className="text-2xl font-bold">Deep Insights</h3>
                   <p className="mt-4 text-base leading-relaxed text-white/90">
@@ -80,11 +84,13 @@ export default function HomePage() {
             <Reveal variant="slideLeft" delay={0.4} enableOutro>
               <BrandCard variant="accent" className="flex min-h-[400px] flex-col justify-between">
                 <div>
-                  <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-blue/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-                    Actionable
-                  </div>
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20">
-                    <Sparkles className="h-8 w-8 stroke-[1.5px] text-white" />
+                  <div className="mb-6 flex items-center justify-between">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-brand-blue/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                      Actionable
+                    </div>
+                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20">
+                      <Sparkles className="h-8 w-8 stroke-[1.5px] text-white" />
+                    </div>
                   </div>
                   <h3 className="text-2xl font-bold">Focus</h3>
                   <p className="mt-4 text-base leading-relaxed text-white/90">
