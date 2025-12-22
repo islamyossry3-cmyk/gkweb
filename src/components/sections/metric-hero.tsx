@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight, BarChart3, TrendingUp, Zap } from 'lucide-react';
 import { AnimatedWord } from '@/components/effects/animated-word';
+import { FloatingParticles } from '@/components/effects/floating-particles';
 
 export function MetricHero() {
   return (
@@ -14,6 +15,7 @@ export function MetricHero() {
     }}>
       <div className="absolute inset-0 bg-brand-dark/40" />
       <div className="noise-overlay" />
+      <FloatingParticles className="absolute inset-0 z-10" count={150} />
 
       <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl" />
