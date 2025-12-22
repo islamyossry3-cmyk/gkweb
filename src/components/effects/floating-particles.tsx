@@ -55,12 +55,12 @@ export function FloatingParticles({
       particlesRef.current = new Array(count).fill(null).map(() => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 1 + 0.5,
-        opacity: Math.random() * 0.6 + 0.4,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 2.5 + 1,
+        opacity: Math.random() * 0.4 + 0.5,
         color: greenColors[Math.floor(Math.random() * greenColors.length)],
-        blur: Math.random() > 0.5 ? Math.random() * 3 + 1 : 0
+        blur: Math.random() > 0.6 ? Math.random() * 2 + 1 : 0
       }));
     };
 

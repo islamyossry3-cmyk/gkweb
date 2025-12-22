@@ -18,17 +18,20 @@ export function IllustrationHero({
   primaryCta?: { label: string; href: string };
 }) {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-20" style={{
-      backgroundImage: 'url(/hero-bg.jpg)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
-    }}>
+    <section className="relative min-h-screen overflow-hidden pt-20">
+      <Image
+        src="/hero-bg.jpg"
+        alt=""
+        fill
+        priority
+        quality={85}
+        className="object-cover"
+      />
       <div className="absolute inset-0 bg-brand-dark/40 z-0" />
       <div className="noise-overlay z-0" />
       <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl z-0" />
       <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl z-0" />
-      <FloatingParticles className="absolute inset-0 z-10 pointer-events-none" count={200} />
+      <FloatingParticles className="absolute inset-0 z-10 pointer-events-none" count={120} />
 
       <div className="relative z-20 mx-auto max-w-7xl px-6 h-full flex items-center min-h-[calc(100vh-5rem)]">
         <div className="grid items-center gap-8 lg:grid-cols-2 w-full py-8">
