@@ -2169,6 +2169,10 @@ video {
   -o-object-position: right bottom;
      object-position: right bottom;
 }
+.object-right {
+  -o-object-position: right;
+     object-position: right;
+}
 .p-10 {
   padding: 2.5rem;
 }

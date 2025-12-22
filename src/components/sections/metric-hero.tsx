@@ -35,7 +35,7 @@ export function MetricHero() {
               </HeroContent>
 
               <HeroContent delay={0.35} direction="up">
-                <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl overflow-visible" style={{ lineHeight: '1.3', textShadow: '0 4px 20px rgba(12, 85, 74, 0.6), 0 2px 10px rgba(12, 85, 74, 0.4)' }}>
+                <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl overflow-visible" style={{ lineHeight: '1.3', textShadow: '0 8px 30px rgba(12, 85, 74, 0.6), 0 4px 15px rgba(12, 85, 74, 0.4)', WebkitTextStroke: '0.5px rgba(255, 255, 255, 0.3)' }}>
                   People & Culture, <AnimatedWord />
                 </h1>
               </HeroContent>
@@ -65,11 +65,11 @@ export function MetricHero() {
               </HeroContent>
             </div>
 
-            <HeroImage delay={0.4} className="relative hidden lg:flex lg:items-end lg:justify-end h-full">
+            <HeroImage delay={0.4} className="relative hidden lg:flex lg:items-center lg:justify-end h-full">
               <img
                 src="https://goldinkollar.com/wp-content/uploads/2025/02/CalArtboard-1-copy@3x-1200x579.png"
                 alt="Platform Dashboard"
-                className="relative z-10 w-auto h-full max-h-[80vh] object-contain object-right-bottom"
+                className="relative z-10 w-auto h-full max-h-[80vh] object-contain object-right"
               />
             </HeroImage>
           </div>
