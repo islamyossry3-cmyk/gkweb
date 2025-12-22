@@ -6,6 +6,55 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Client-Info, Apikey',
 };
 
+async function sendEmailNotification(data: ContactSubmission) {
+  const resendApiKey = Deno.env.get('RESEND_API_KEY');
+  const notificationEmail = Deno.env.get('NOTIFICATION_EMAIL');
+
+  if (!resendApiKey || !notificationEmail) {
+    console.warn('Email notifications not configured. Skipping email.');
+    return;
+  }
+
+  try {
+    const emailBody = `
+New Contact Form Submission
+
+Name: ${data.name}
+Email: ${data.email}
+${data.company ? `Company: ${data.company}` : ''}
+${data.role ? `Role: ${data.role}` : ''}
+${data.phone ? `Phone: ${data.phone}` : ''}
+${data.region ? `Region: ${data.region}` : ''}
+Intent: ${data.intent}
+${data.product ? `Product: ${data.product}` : ''}
+
+Message:
+${data.message || 'No message provided'}
+    `.trim();
+
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${resendApiKey}`,
+      },
+      body: JSON.stringify({
+        from: 'Contact Form <onboarding@resend.dev>',
+        to: [notificationEmail],
+        subject: `New Contact Form: ${data.intent} - ${data.name}`,
+        text: emailBody,
+      }),
+    });
+
+    if (!response.ok) {
+      const error = await response.text();
+      console.error('Failed to send email:', error);
+    }
+  } catch (error) {
+    console.error('Error sending email notification:', error);
+  }
+}
+
 interface ContactSubmission {
   name: string;
   company?: string;
@@ -89,6 +138,8 @@ Deno.serve(async (req: Request) => {
         }
       );
     }
+
+    await sendEmailNotification(data);
 
     return new Response(
       JSON.stringify({ success: true, id: submission.id }),
