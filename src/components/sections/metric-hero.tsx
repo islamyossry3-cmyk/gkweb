@@ -3,7 +3,13 @@ import { ArrowRight, BarChart3, TrendingUp, Zap } from 'lucide-react';
 
 export function MetricHero() {
   return (
-    <section className="hero-gradient relative min-h-[90vh] overflow-hidden pt-24 lg:pt-32">
+    <section className="relative min-h-[90vh] overflow-hidden pt-24 lg:pt-32" style={{
+      backgroundImage: 'url(/hero-bg.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
+      <div className="absolute inset-0 bg-brand-dark/40" />
       <div className="noise-overlay" />
 
       <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl" />
