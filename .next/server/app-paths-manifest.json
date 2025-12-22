@@ -1,7 +1,7 @@
 {
   "/page": "app/page.js",
   "/team/page": "app/team/page.js",
-  "/solutions/page": "app/solutions/page.js",
-  "/products/[slug]/page": "app/products/[slug]/page.js",
-  "/platform/page": "app/platform/page.js"
+  "/platform/page": "app/platform/page.js",
+  "/case-studies/page": "app/case-studies/page.js",
+  "/resources/page": "app/resources/page.js"
 }
