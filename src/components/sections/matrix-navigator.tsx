@@ -19,7 +19,7 @@ export function MatrixNavigator() {
   const cell = open ? getMatrixCell(open.domain, open.delivery) : undefined;
 
   return (
-    <section id="matrix" className="relative py-20">
+    <section id="matrix" className="relative hidden py-20 lg:block">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-3">
           <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[linear-gradient(135deg,rgba(12,85,74,0.10),rgba(246,119,130,0.10))] px-4 py-2 text-xs font-semibold text-slate-800 ring-1 ring-slate-900/10">
@@ -120,7 +120,7 @@ export function MatrixNavigator() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60]"
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4"
           >
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setOpen(null)} />
             <motion.div
@@ -128,7 +128,7 @@ export function MatrixNavigator() {
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 30, opacity: 0, scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 280, damping: 26 }}
-              className="absolute left-1/2 top-1/2 w-[92%] max-w-2xl -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-3xl border border-white/10 bg-ink-950 text-white shadow-[0_40px_120px_rgba(0,0,0,0.6)]"
+              className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-ink-950 text-white shadow-[0_40px_120px_rgba(0,0,0,0.6)]"
             >
               <div className="relative p-8">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(246,119,130,0.22),transparent_55%),radial-gradient(circle_at_bottom,rgba(12,85,74,0.22),transparent_55%)] opacity-60" />

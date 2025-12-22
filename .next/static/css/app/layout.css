@@ -2953,6 +2953,10 @@ body {
     grid-column: span 7 / span 7;
   }
 
+  .lg\:mt-0 {
+    margin-top: 0px;
+  }
+
   .lg\:block {
     display: block;
   }

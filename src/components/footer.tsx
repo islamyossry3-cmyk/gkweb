@@ -5,7 +5,7 @@ import { ContactCard } from '@/components/contact-card';
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200/70 bg-white">
+    <footer className="mt-16 border-t border-slate-200/70 bg-white lg:mt-0">
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
