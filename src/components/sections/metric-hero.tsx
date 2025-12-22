@@ -67,7 +67,7 @@ export function MetricHero() {
 
             <HeroImage delay={0.4} className="relative hidden lg:flex lg:items-end lg:justify-end h-full">
               <img
-                src="https://iili.io/fEFQ9KN.png"
+                src="https://goldinkollar.com/wp-content/uploads/2025/02/CalArtboard-1-copy@3x-1200x579.png"
                 alt="Platform Dashboard"
                 className="relative z-10 w-auto h-full max-h-[80vh] object-contain object-right-bottom"
               />
