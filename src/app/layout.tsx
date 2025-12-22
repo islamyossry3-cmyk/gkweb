@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk, Noto_Sans_Arabic } from 'next/font/google';
 
 import './globals.css';
 import { Header } from '@/components/header';
@@ -16,6 +16,12 @@ const inter = Inter({
 const space = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space',
+  display: 'swap'
+});
+
+const notoArabic = Noto_Sans_Arabic({
+  subsets: ['arabic'],
+  variable: '--font-arabic',
   display: 'swap'
 });
 
@@ -46,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${space.variable}`}>
+    <html lang="en" className={`${inter.variable} ${space.variable} ${notoArabic.variable}`}>
       <body>
         <LenisProvider>
           <Header />

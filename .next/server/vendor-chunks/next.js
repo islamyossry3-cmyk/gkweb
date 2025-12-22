@@ -20,6 +20,16 @@ eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Inter_f3
 
 /***/ }),
 
+/***/ "(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Noto_Sans_Arabic\",\"arguments\":[{\"subsets\":[\"arabic\"],\"variable\":\"--font-arabic\",\"display\":\"swap\"}],\"variableName\":\"notoArabic\"}":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Noto_Sans_Arabic","arguments":[{"subsets":["arabic"],"variable":"--font-arabic","display":"swap"}],"variableName":"notoArabic"} ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Noto_Sans_Arabic_35258b', '__Noto_Sans_Arabic_Fallback_35258b'\",\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_35258b\",\n\t\"variable\": \"__variable_35258b\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcInNyYy9hcHAvbGF5b3V0LnRzeFwiLFwiaW1wb3J0XCI6XCJOb3RvX1NhbnNfQXJhYmljXCIsXCJhcmd1bWVudHNcIjpbe1wic3Vic2V0c1wiOltcImFyYWJpY1wiXSxcInZhcmlhYmxlXCI6XCItLWZvbnQtYXJhYmljXCIsXCJkaXNwbGF5XCI6XCJzd2FwXCJ9XSxcInZhcmlhYmxlTmFtZVwiOlwibm90b0FyYWJpY1wifSIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0EsV0FBVyxzR0FBc0c7QUFDakg7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vZ29sZGlua29sbGFyLXdlYnNpdGUvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP2IyNGMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhwb3J0c1xubW9kdWxlLmV4cG9ydHMgPSB7XG5cdFwic3R5bGVcIjoge1wiZm9udEZhbWlseVwiOlwiJ19fTm90b19TYW5zX0FyYWJpY18zNTI1OGInLCAnX19Ob3RvX1NhbnNfQXJhYmljX0ZhbGxiYWNrXzM1MjU4YidcIixcImZvbnRTdHlsZVwiOlwibm9ybWFsXCJ9LFxuXHRcImNsYXNzTmFtZVwiOiBcIl9fY2xhc3NOYW1lXzM1MjU4YlwiLFxuXHRcInZhcmlhYmxlXCI6IFwiX192YXJpYWJsZV8zNTI1OGJcIlxufTtcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Noto_Sans_Arabic\",\"arguments\":[{\"subsets\":[\"arabic\"],\"variable\":\"--font-arabic\",\"display\":\"swap\"}],\"variableName\":\"notoArabic\"}\n");
+
+/***/ }),
+
 /***/ "(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Space_Grotesk\",\"arguments\":[{\"subsets\":[\"latin\"],\"variable\":\"--font-space\",\"display\":\"swap\"}],\"variableName\":\"space\"}":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Space_Grotesk","arguments":[{"subsets":["latin"],"variable":"--font-space","display":"swap"}],"variableName":"space"} ***!

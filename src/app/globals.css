@@ -18,8 +18,19 @@ body {
   font-feature-settings: "ss01" 1, "ss02" 1, "cv11" 1;
 }
 
-/* Subtle noise overlay (CSS-only, lightweight) */
-.noise::before {
+/* Grainy gradient texture overlay for brand cards */
+.noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+}
+
+/* Subtle version for light backgrounds */
+.noise-light::before {
   content: "";
   position: absolute;
   inset: 0;
