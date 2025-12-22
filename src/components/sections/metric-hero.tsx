@@ -1,5 +1,8 @@
+"use client";
+
 import Link from 'next/link';
 import { ArrowRight, BarChart3, TrendingUp, Zap } from 'lucide-react';
+import { AnimatedWord } from '@/components/effects/animated-word';
 
 export function MetricHero() {
   return (
@@ -25,8 +28,7 @@ export function MetricHero() {
             </div>
 
             <h1 className="font-display text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
-              People & Culture,
-              <span className="bg-gradient-to-r from-brand-green to-brand-blue bg-clip-text text-transparent"> Engineered.</span>
+              People & Culture, <AnimatedWord />
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-white/80">
