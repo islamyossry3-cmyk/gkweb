@@ -27,34 +27,64 @@ export function ContactForm({ defaultIntent, defaultProduct }: { defaultIntent?:
   const [product, setProduct] = React.useState(defaultProduct || '');
   const [message, setMessage] = React.useState('');
   const [submitted, setSubmitted] = React.useState(false);
+  const [submitting, setSubmitting] = React.useState(false);
+  const [error, setError] = React.useState('');
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `GoldinKollar Website — ${intent}${product ? ` — ${product}` : ''}`;
-    const body = [
-      `Name: ${name}`,
-      `Company: ${company}`,
-      `Role: ${role}`,
-      `Email: ${email}`,
-      `Phone: ${phone}`,
-      `Region: ${region}`,
-      `Intent: ${intent}`,
-      `Product: ${product || '-'}`,
-      '',
-      'Message:',
-      message
-    ].join('\n');
+    setSubmitting(true);
+    setError('');
 
-    const mailto = `mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setSubmitted(true);
+    try {
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+      const response = await fetch(`${supabaseUrl}/functions/v1/submit-contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`,
+        },
+        body: JSON.stringify({
+          name,
+          company,
+          role,
+          email,
+          phone,
+          region,
+          intent,
+          product,
+          message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit form');
+      }
+
+      setSubmitted(true);
+      setName('');
+      setCompany('');
+      setRole('');
+      setEmail('');
+      setPhone('');
+      setMessage('');
+      setProduct('');
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError(err instanceof Error ? err.message : 'Failed to submit form. Please try again or email us directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <div className="rounded-3xl border border-slate-200/70 bg-white/70 p-8 shadow-soft backdrop-blur">
       <div className="text-sm font-bold text-slate-900">Send a request</div>
       <div className="mt-2 text-sm text-slate-600">
-        This form opens your email client with a prefilled message. Prefer direct email?{' '}
+        Fill out the form below and we'll get back to you shortly. Prefer direct email?{' '}
         <a className="font-semibold text-brand-green hover:underline" href={`mailto:${site.contact.email}`}>
           {site.contact.email}
         </a>
@@ -121,18 +151,22 @@ export function ContactForm({ defaultIntent, defaultProduct }: { defaultIntent?:
 
         <button
           type="submit"
-          className="mt-2 inline-flex items-center justify-center rounded-xl bg-brand-green px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5"
+          disabled={submitting}
+          className="mt-2 inline-flex items-center justify-center rounded-xl bg-brand-green px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Send request
+          {submitting ? 'Sending...' : 'Send request'}
         </button>
 
         {submitted ? (
-          <div className="mt-2 rounded-2xl bg-slate-50 p-4 text-sm text-slate-600">
-            If your email client didn’t open, you can email us directly at{' '}
-            <a className="font-semibold text-brand-green hover:underline" href={`mailto:${site.contact.email}`}>
-              {site.contact.email}
-            </a>
-            .
+          <div className="mt-2 rounded-2xl bg-brand-green/10 p-4 text-sm text-brand-dark">
+            <strong>Thank you!</strong> Your request has been received. We'll get back to you shortly at{' '}
+            <span className="font-semibold">{email}</span>.
+          </div>
+        ) : null}
+
+        {error ? (
+          <div className="mt-2 rounded-2xl bg-red-50 p-4 text-sm text-red-900">
+            <strong>Error:</strong> {error}
           </div>
         ) : null}
 

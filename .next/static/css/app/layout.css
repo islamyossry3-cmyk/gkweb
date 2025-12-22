@@ -1911,6 +1911,13 @@ video {
 .bg-brand-blue\/20 {
   background-color: rgb(175 224 238 / 0.2);
 }
+.bg-brand-green\/10 {
+  background-color: rgb(45 151 102 / 0.1);
+}
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
+}
 .bg-\[linear-gradient\(135deg\2c rgba\(12\2c 85\2c 74\2c 0\.06\)\2c rgba\(246\2c 119\2c 130\2c 0\.05\)\)\] {
   background-image: linear-gradient(135deg,rgba(12,85,74,0.06),rgba(246,119,130,0.05));
 }
@@ -2310,6 +2317,10 @@ video {
 .text-white\/90 {
   color: rgb(255 255 255 / 0.9);
 }
+.text-red-900 {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity, 1));
+}
 .underline {
   text-decoration-line: underline;
 }
@@ -2654,6 +2665,14 @@ body {
 .active\:translate-y-0:active {
   --tw-translate-y: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.disabled\:cursor-not-allowed:disabled {
+  cursor: not-allowed;
+}
+
+.disabled\:opacity-50:disabled {
+  opacity: 0.5;
 }
 
 .group[open] .group-open\:rotate-45 {
