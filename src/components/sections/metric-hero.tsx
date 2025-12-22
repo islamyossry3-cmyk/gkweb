@@ -58,10 +58,11 @@ export function MetricHero() {
           </div>
 
           <div className="relative hidden lg:flex lg:items-center lg:justify-end h-full">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl" />
             <img
               src="https://iili.io/fEdurba.gif"
               alt="Platform Dashboard"
-              className="w-auto h-full object-contain object-center"
+              className="relative z-10 w-auto h-full object-contain object-center"
             />
           </div>
         </div>
