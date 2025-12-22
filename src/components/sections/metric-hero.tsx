@@ -19,10 +19,10 @@ export function MetricHero() {
       <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl z-0" />
       <FloatingParticles className="absolute inset-0 z-10 pointer-events-none" count={200} />
 
-      <div className="relative z-20 mx-auto max-w-7xl px-6 h-[calc(100vh-4rem)] flex items-end pb-0">
-        <div className="grid items-end gap-8 lg:grid-cols-2 w-full pb-8">
+      <div className="relative z-20 mx-auto max-w-7xl pl-6 h-[calc(100vh-4rem)] flex items-end pb-0">
+        <div className="grid items-end gap-8 lg:grid-cols-2 w-full pb-0">
 
-          <div className="space-y-6 lg:space-y-8 lg:pb-12">
+          <div className="space-y-6 lg:space-y-8 pb-12">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand-sage/30 bg-brand-dark/50 px-4 py-2 text-sm font-semibold text-brand-blue backdrop-blur">
               <Zap className="h-4 w-4 stroke-[1.5px]" />
               MENA • Enterprise-ready • AI-Powered
@@ -53,11 +53,11 @@ export function MetricHero() {
             </div>
           </div>
 
-          <div className="relative hidden lg:flex lg:items-end lg:justify-end h-full max-h-[85vh]">
+          <div className="relative hidden lg:flex lg:items-end lg:justify-end h-full">
             <img
               src="https://iili.io/fE9sldx.png"
               alt="Platform Dashboard"
-              className="max-w-full max-h-full w-auto h-auto object-contain"
+              className="w-auto h-full object-contain object-bottom"
             />
           </div>
         </div>

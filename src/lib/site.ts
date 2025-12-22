@@ -10,6 +10,6 @@ export const site = {
   contact: {
     email: 'islam.yousry@goldinkollar.com',
     phone: '+201224666402',
-    regions: ['Egypt', 'KSA', 'Oman', 'Qatar']
+    regions: ['Egypt', 'UAE', 'KSA', 'Oman', 'Qatar']
   }
 } as const;

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { site } from '@/lib/site';
+import { ContactCard } from '@/components/contact-card';
 
 export function Footer() {
   return (
@@ -8,8 +9,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Image src="/brand/logo.svg" alt={site.name} width={180} height={46} className="h-10 w-auto" />
-            <div className="mt-3 text-xs font-semibold text-slate-500">{site.arabicName}</div>
+            <Image src="/brand/logo-icon.svg" alt={site.name} width={120} height={120} className="h-16 w-auto" />
 
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-600">
               {site.description}
@@ -36,6 +36,7 @@ export function Footer() {
                 <li><Link className="hover:text-slate-900" href="/methodology">Methodology</Link></li>
                 <li><Link className="hover:text-slate-900" href="/security">Security & Data</Link></li>
                 <li><Link className="hover:text-slate-900" href="/ethics-psychometrics">Psychometrics Ethics</Link></li>
+                <li><Link className="hover:text-slate-900" href="/team">Team</Link></li>
               </ul>
             </div>
 
@@ -51,16 +52,9 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="text-sm font-bold text-slate-900">Contact</div>
-            <div className="mt-3 space-y-2 text-sm text-slate-600">
-              <div>
-                <div className="text-xs font-semibold text-slate-500">Email</div>
-                <a className="hover:text-slate-900" href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
-              </div>
-              <div>
-                <div className="text-xs font-semibold text-slate-500">Phone / WhatsApp</div>
-                <a className="hover:text-slate-900" href={`tel:${site.contact.phone}`}>{site.contact.phone}</a>
-              </div>
+            <div className="mb-4 text-sm font-bold text-slate-900">Contact our Head of Research & Strategy</div>
+            <ContactCard />
+            <div className="mt-4 space-y-1 text-sm text-slate-600">
               <div>
                 <div className="text-xs font-semibold text-slate-500">Regions</div>
                 <div>{site.contact.regions.join(', ')}</div>

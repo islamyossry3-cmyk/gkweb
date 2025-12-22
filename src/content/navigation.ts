@@ -9,6 +9,7 @@ export const nav = {
     { label: 'Methodology', href: '/methodology' },
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'Resources', href: '/resources' },
+    { label: 'Team', href: '/team' },
     { label: 'Careers', href: '/careers' }
   ],
   ctas: [

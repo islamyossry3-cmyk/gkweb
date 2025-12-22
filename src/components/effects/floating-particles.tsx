@@ -10,6 +10,7 @@ type Particle = {
   size: number;
   opacity: number;
   color: string;
+  blur: number;
 };
 
 function prefersReducedMotion() {
@@ -56,9 +57,10 @@ export function FloatingParticles({
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 2 + 1,
+        size: Math.random() * 1 + 0.5,
         opacity: Math.random() * 0.6 + 0.4,
-        color: greenColors[Math.floor(Math.random() * greenColors.length)]
+        color: greenColors[Math.floor(Math.random() * greenColors.length)],
+        blur: Math.random() > 0.5 ? Math.random() * 3 + 1 : 0
       }));
     };
 
@@ -80,13 +82,19 @@ export function FloatingParticles({
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
-        ctx.shadowBlur = 2;
+        ctx.shadowBlur = p.blur > 0 ? p.blur : 2;
         ctx.shadowColor = p.color;
         ctx.fillStyle = p.color;
         ctx.globalAlpha = p.opacity;
+        if (p.blur > 0) {
+          ctx.filter = `blur(${p.blur}px)`;
+        }
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
+        if (p.blur > 0) {
+          ctx.filter = 'none';
+        }
       }
 
       ctx.shadowBlur = 0;
