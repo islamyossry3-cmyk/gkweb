@@ -55,7 +55,7 @@ export function MetricHero() {
 
           <div className="relative hidden lg:flex lg:items-end lg:justify-end h-full">
             <img
-              src="https://iili.io/fEdBOI2.gif"
+              src="https://iili.io/fEdurba.gif"
               alt="Platform Dashboard"
               className="w-auto h-full object-contain object-bottom"
             />
