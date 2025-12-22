@@ -1,9 +1,9 @@
+'use client';
+
 import Link from 'next/link';
-import { cn } from '@/lib/cn';
-import { AuroraBackdrop } from '@/components/effects/aurora';
-import { HeroEffects } from '@/components/effects/hero-effects';
-import { Magnetic } from '@/components/effects/magnetic';
-import { buttonClasses } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { FloatingParticles } from '@/components/effects/floating-particles';
 
 export function PageHero({
   kicker,
@@ -21,79 +21,87 @@ export function PageHero({
   right?: React.ReactNode;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-ink-950 pb-16 pt-28 text-white">
-      <AuroraBackdrop />
-      <HeroEffects />
+    <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden pt-20 lg:pt-32" style={{
+      backgroundImage: 'url(/hero-bg.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
+      <div className="absolute inset-0 bg-brand-dark/40 z-0" />
+      <div className="noise-overlay z-0" />
+      <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl z-0" />
+      <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl z-0" />
+      <FloatingParticles className="absolute inset-0 z-10 pointer-events-none" count={200} />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-12">
-        <div className="lg:col-span-7">
-          {kicker ? (
-            <div className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white/80 ring-1 ring-white/15">
-              {kicker}
-            </div>
-          ) : null}
+      <div className="relative z-20 mx-auto max-w-7xl px-6 py-12">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="space-y-6 lg:space-y-8">
+            {kicker && (
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-sage/30 bg-brand-dark/50 px-4 py-2 text-sm font-semibold text-brand-blue backdrop-blur">
+                {kicker}
+              </div>
+            )}
 
-          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="bg-[linear-gradient(90deg,#ffffff,rgba(255,255,255,0.75),#ffffff)] bg-[length:200%_200%] bg-clip-text text-transparent animate-shimmer">
-              {title}
-            </span>
-          </h1>
+            <motion.h1
+              className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <span className="bg-gradient-to-r from-white via-white/90 to-white bg-clip-text text-transparent">
+                {title}
+              </span>
+            </motion.h1>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-            {subtitle}
-          </p>
+            <motion.p
+              className="max-w-xl text-base sm:text-lg leading-relaxed text-white/80"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
+            >
+              {subtitle}
+            </motion.p>
 
-          {(primaryCta || secondaryCta) ? (
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              {primaryCta ? (
-                <Magnetic>
-                  <Link href={primaryCta.href} className={cn(buttonClasses('primary'), 'px-5 py-3 text-sm')}>
+            {(primaryCta || secondaryCta) && (
+              <motion.div
+                className="flex flex-col gap-3 sm:flex-row sm:gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
+              >
+                {primaryCta && (
+                  <Link
+                    href={primaryCta.href}
+                    className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand-pink px-6 py-3 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg transition hover:-translate-y-1 hover:bg-brand-pink/90"
+                  >
                     {primaryCta.label}
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 stroke-[1.5px] transition group-hover:translate-x-1" />
                   </Link>
-                </Magnetic>
-              ) : null}
-              {secondaryCta ? (
-                <Link href={secondaryCta.href} className={cn(buttonClasses('secondary'), 'px-5 py-3 text-sm')}>
-                  {secondaryCta.label}
-                </Link>
-              ) : null}
-            </div>
-          ) : null}
-
-          <div className="mt-6 text-sm text-white/60">
-            See the platform in 2 minutes. Get a tailored recommendation in 30.
+                )}
+                {secondaryCta && (
+                  <Link
+                    href={secondaryCta.href}
+                    className="group inline-flex items-center justify-center gap-2 rounded-xl border border-brand-sage/30 bg-white/5 px-6 py-3 sm:py-4 text-sm sm:text-base font-bold text-white backdrop-blur transition hover:-translate-y-1"
+                  >
+                    {secondaryCta.label}
+                  </Link>
+                )}
+              </motion.div>
+            )}
           </div>
-        </div>
 
-        <div className="lg:col-span-5">
-          {right ? (
-            <div className="relative">
-              <div className="absolute -inset-6 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(246,119,130,0.25),transparent_55%),radial-gradient(circle_at_bottom,rgba(12,85,74,0.25),transparent_55%)] blur-2xl" />
-              <div className="relative rounded-3xl border border-white/10 bg-white/5 p-4 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur">
+          {right && (
+            <div className="relative hidden lg:block">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+              >
                 {right}
-              </div>
-            </div>
-          ) : (
-            <div className="relative">
-              <div className="absolute -inset-10 rounded-[2rem] bg-[radial-gradient(circle_at_center,rgba(246,119,130,0.25),transparent_60%)] blur-3xl" />
-              <div className="relative rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur">
-                <div className="text-xs font-semibold text-white/70">Signature experience</div>
-                <div className="mt-2 text-lg font-semibold">The 5×5 GoldinKollar Matrix</div>
-                <div className="mt-2 text-sm text-white/70">
-                  Explore solutions by Domain (IC / EX / EE / Culture / EB) or by Delivery Type (Measure / Strategize / Implement / Transfer / Document).
-                </div>
+              </motion.div>
 
-                <div className="mt-5 grid grid-cols-5 gap-2 text-[10px] text-white/70">
-                  {['IC','EX','EE','Culture','EB'].map((r) => (
-                    <div key={r} className="rounded-lg bg-white/5 px-2 py-2 text-center ring-1 ring-white/10">{r}</div>
-                  ))}
-                  {['Measure','Strategize','Implement','Transfer','Document'].map((c) => (
-                    <div key={c} className="col-span-5 mt-2 rounded-xl bg-white/5 px-3 py-2 text-center ring-1 ring-white/10">
-                      {c}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-2xl border border-brand-sage/20 bg-brand-dark/50 backdrop-blur" />
+              <div className="absolute -bottom-8 -left-8 h-24 w-24 rotate-12 rounded-2xl border border-brand-sage/20 bg-brand-dark/50 backdrop-blur" />
             </div>
           )}
         </div>

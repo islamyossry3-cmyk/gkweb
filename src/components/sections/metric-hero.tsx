@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ArrowRight, BarChart3, TrendingUp, Zap } from 'lucide-react';
+import { ArrowRight, Zap } from 'lucide-react';
 import { AnimatedWord } from '@/components/effects/animated-word';
 import { FloatingParticles } from '@/components/effects/floating-particles';
 
@@ -54,65 +54,13 @@ export function MetricHero() {
           </div>
 
           <div className="relative hidden lg:block">
-            <div className="glass-card relative space-y-6 rounded-3xl p-6 lg:p-8">
-              <div className="noise-overlay rounded-3xl" />
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-between">
-                  <div className="text-sm font-semibold text-brand-blue">
-                    Impact Dashboard
-                  </div>
-                  <div className="rounded-full bg-brand-green/20 px-3 py-1 text-xs font-bold text-brand-green">
-                    Live
-                  </div>
-                </div>
-
-                <div className="mt-8 space-y-6">
-                  <div className="group">
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <div className="text-sm font-medium text-white/60">Average Retention</div>
-                        <div className="mt-2 font-display text-5xl font-bold text-white">52<span className="text-2xl text-white/60">mo</span></div>
-                      </div>
-                      <TrendingUp className="h-8 w-8 stroke-[1.5px] text-brand-green" />
-                    </div>
-                    <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
-                      <div className="h-full w-4/5 bg-gradient-to-r from-brand-green to-brand-blue" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-4">
-                    {[
-                      { label: 'Engagement', value: '+18%', icon: BarChart3 },
-                      { label: 'Performance', value: '+12%', icon: TrendingUp },
-                      { label: 'Advocacy', value: '+9%', icon: Zap }
-                    ].map((metric) => (
-                      <div key={metric.label} className="glass-card rounded-2xl p-4">
-                        <metric.icon className="h-5 w-5 stroke-[1.5px] text-brand-blue" />
-                        <div className="mt-3 text-xs text-white/60">{metric.label}</div>
-                        <div className="mt-1 font-display text-2xl font-bold text-white">{metric.value}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="glass-card rounded-2xl p-4">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-brand-blue">
-                      <div className="h-2 w-2 animate-pulse rounded-full bg-brand-green" />
-                      Next Actions Queued
-                    </div>
-                    <div className="mt-3 space-y-2 text-sm text-white/75">
-                      <div className="flex items-center justify-between">
-                        <span>Launch onboarding milestone program</span>
-                        <span className="text-xs text-white/50">EX</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span>Deploy culture diagnostic</span>
-                        <span className="text-xs text-white/50">Culture</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="https://iili.io/fE9sldx.png"
+                alt="Platform Dashboard"
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/20 to-transparent pointer-events-none" />
             </div>
 
             <div className="absolute -right-8 -top-8 h-32 w-32 rounded-2xl border border-brand-sage/20 bg-brand-dark/50 backdrop-blur" />

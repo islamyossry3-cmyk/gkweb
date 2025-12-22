@@ -1,6 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { cn } from '@/lib/cn';
+import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { FloatingParticles } from '@/components/effects/floating-particles';
 
 export function IllustrationHero({
   title,
@@ -14,41 +18,80 @@ export function IllustrationHero({
   primaryCta?: { label: string; href: string };
 }) {
   return (
-    <section className="relative min-h-[85vh] overflow-hidden bg-[#e6f0ee] pt-24 lg:pt-32">
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(12,85,74,0.05)_100%)]" />
+    <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden pt-20 lg:pt-32" style={{
+      backgroundImage: 'url(/hero-bg.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
+      <div className="absolute inset-0 bg-brand-dark/40 z-0" />
+      <div className="noise-overlay z-0" />
+      <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl z-0" />
+      <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl z-0" />
+      <FloatingParticles className="absolute inset-0 z-10 pointer-events-none" count={200} />
 
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
+      <div className="relative z-20 mx-auto max-w-7xl px-6 py-12">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="space-y-6 lg:space-y-8">
+            <motion.h1
+              className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <span className="bg-gradient-to-r from-white via-white/90 to-white bg-clip-text text-transparent">
+                {title}
+              </span>
+            </motion.h1>
 
-        <div className="relative z-20 max-w-2xl">
-          <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-brand-green sm:text-5xl lg:text-6xl">
-            {title}
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-slate-700">
-            {subtitle}
-          </p>
-          {primaryCta && (
-            <div className="mt-8">
-              <Link
-                href={primaryCta.href}
-                className="inline-flex items-center justify-center rounded-xl bg-brand-pink px-8 py-4 text-base font-bold text-white shadow-lg transition hover:-translate-y-1 hover:bg-[#ff8a95]"
+            <motion.p
+              className="max-w-xl text-base sm:text-lg leading-relaxed text-white/80"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
+            >
+              {subtitle}
+            </motion.p>
+
+            {primaryCta && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
               >
-                {primaryCta.label}
-              </Link>
-            </div>
-          )}
-        </div>
+                <Link
+                  href={primaryCta.href}
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand-pink px-6 py-3 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg transition hover:-translate-y-1 hover:bg-brand-pink/90"
+                >
+                  {primaryCta.label}
+                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 stroke-[1.5px] transition group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
+            )}
+          </div>
 
-        <div className="relative z-10 lg:h-[600px]">
-           <div className="relative h-full w-full overflow-hidden rounded-[2.5rem]">
-             <Image
-               src={imageSrc}
-               alt="Hero Illustration"
-               fill
-               className="object-cover object-center"
-               priority
-             />
-             <div className="noise absolute inset-0 z-10 mix-blend-overlay opacity-30" />
-           </div>
+          <div className="relative hidden lg:block">
+            <motion.div
+              className="relative rounded-3xl overflow-hidden shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+            >
+              <div className="relative h-[500px] w-full">
+                <Image
+                  src={imageSrc}
+                  alt="Hero Illustration"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/20 to-transparent pointer-events-none" />
+            </motion.div>
+
+            <div className="absolute -right-8 -top-8 h-32 w-32 rounded-2xl border border-brand-sage/20 bg-brand-dark/50 backdrop-blur" />
+            <div className="absolute -bottom-8 -left-8 h-24 w-24 rotate-12 rounded-2xl border border-brand-sage/20 bg-brand-dark/50 backdrop-blur" />
+          </div>
         </div>
       </div>
     </section>
