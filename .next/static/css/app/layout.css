@@ -1979,6 +1979,10 @@ video {
   -o-object-position: center;
      object-position: center;
 }
+.object-bottom {
+  -o-object-position: bottom;
+     object-position: bottom;
+}
 .p-10 {
   padding: 2.5rem;
 }
@@ -2701,6 +2705,10 @@ body {
     height: 600px;
   }
 
+  .lg\:h-full {
+    height: 100%;
+  }
+
   .lg\:min-h-\[90vh\] {
     min-height: 90vh;
   }
@@ -2731,6 +2739,10 @@ body {
 
   .lg\:flex-col {
     flex-direction: column;
+  }
+
+  .lg\:items-end {
+    align-items: flex-end;
   }
 
   .lg\:items-center {
@@ -2766,6 +2778,10 @@ body {
 
   .lg\:pt-24 {
     padding-top: 6rem;
+  }
+
+  .lg\:pb-8 {
+    padding-bottom: 2rem;
   }
 
   .lg\:text-5xl {

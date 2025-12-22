@@ -7,7 +7,7 @@ import { FloatingParticles } from '@/components/effects/floating-particles';
 
 export function MetricHero() {
   return (
-    <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden pt-20 lg:pt-32" style={{
+    <section className="relative min-h-screen overflow-hidden pt-20" style={{
       backgroundImage: 'url(/hero-bg.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -19,10 +19,10 @@ export function MetricHero() {
       <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-brand-pink/10 blur-3xl z-0" />
       <FloatingParticles className="absolute inset-0 z-10 pointer-events-none" count={200} />
 
-      <div className="relative z-20 mx-auto max-w-7xl px-6 py-12">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="relative z-20 mx-auto max-w-7xl px-6 h-full flex items-center min-h-[calc(100vh-5rem)]">
+        <div className="grid items-end gap-8 lg:grid-cols-2 w-full py-8">
 
-          <div className="space-y-6 lg:space-y-8">
+          <div className="space-y-6 lg:space-y-8 lg:pb-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand-sage/30 bg-brand-dark/50 px-4 py-2 text-sm font-semibold text-brand-blue backdrop-blur">
               <Zap className="h-4 w-4 stroke-[1.5px]" />
               MENA • Enterprise-ready • AI-Powered
@@ -53,18 +53,12 @@ export function MetricHero() {
             </div>
           </div>
 
-          <div className="relative hidden lg:block">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="https://iili.io/fE9sldx.png"
-                alt="Platform Dashboard"
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/20 to-transparent pointer-events-none" />
-            </div>
-
-            <div className="absolute -right-8 -top-8 h-32 w-32 rounded-2xl border border-brand-sage/20 bg-brand-dark/50 backdrop-blur" />
-            <div className="absolute -bottom-8 -left-8 h-24 w-24 rotate-12 rounded-2xl border border-brand-sage/20 bg-brand-dark/50 backdrop-blur" />
+          <div className="relative hidden lg:flex lg:items-end lg:justify-end lg:h-full">
+            <img
+              src="https://iili.io/fE9sldx.png"
+              alt="Platform Dashboard"
+              className="w-full max-w-2xl h-auto object-contain object-bottom"
+            />
           </div>
         </div>
       </div>
