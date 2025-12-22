@@ -29,6 +29,8 @@ export function LiquidBlobs({ className, count = 15 }: { className?: string; cou
   const blobsRef = React.useRef<Blob[]>([]);
   const rafRef = React.useRef<number | null>(null);
   const blobElementsRef = React.useRef<HTMLDivElement[]>([]);
+  const filterIdRef = React.useRef(`goo-${Math.random().toString(36).substr(2, 9)}`);
+  const grainIdRef = React.useRef(`grain-${Math.random().toString(36).substr(2, 9)}`);
 
   React.useEffect(() => {
     if (prefersReducedMotion()) return;
@@ -69,9 +71,10 @@ export function LiquidBlobs({ className, count = 15 }: { className?: string; cou
         element.style.width = `${blobWidth}px`;
         element.style.height = `${blobHeight}px`;
         element.style.borderRadius = borderRadius;
-        element.style.background = `radial-gradient(circle at center, ${color} 0%, ${color} 5%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0) 100%)`;
+        element.style.background = `radial-gradient(circle at center, ${color} 0%, ${color} 15%, transparent 60%)`;
         element.style.willChange = 'transform';
         element.style.pointerEvents = 'none';
+        element.style.opacity = '0.6';
 
         container.appendChild(element);
         blobElementsRef.current.push(element);
@@ -125,11 +128,23 @@ export function LiquidBlobs({ className, count = 15 }: { className?: string; cou
     };
   }, [count]);
 
+  const filterId = filterIdRef.current;
+  const grainId = grainIdRef.current;
+
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ display: 'none' }}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        style={{
+          position: 'absolute',
+          width: 0,
+          height: 0,
+          overflow: 'hidden'
+        }}
+      >
         <defs>
-          <filter id="goo">
+          <filter id={filterId} x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="35" result="blur" />
             <feColorMatrix
               in="blur"
@@ -139,7 +154,7 @@ export function LiquidBlobs({ className, count = 15 }: { className?: string; cou
             />
             <feComposite in="SourceGraphic" in2="goo" operator="atop" />
           </filter>
-          <filter id="grain">
+          <filter id={grainId}>
             <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves={3} stitchTiles="stitch" />
           </filter>
         </defs>
@@ -148,8 +163,9 @@ export function LiquidBlobs({ className, count = 15 }: { className?: string; cou
         ref={containerRef}
         className={className}
         style={{
-          filter: 'url(#goo)',
-          mixBlendMode: 'screen'
+          filter: `url(#${filterId})`,
+          mixBlendMode: 'screen',
+          WebkitFilter: `url(#${filterId})`
         }}
         aria-hidden
       />
@@ -157,7 +173,8 @@ export function LiquidBlobs({ className, count = 15 }: { className?: string; cou
         className={className}
         style={{
           opacity: 0.07,
-          filter: 'url(#grain)',
+          filter: `url(#${grainId})`,
+          WebkitFilter: `url(#${grainId})`,
           pointerEvents: 'none'
         }}
         aria-hidden
