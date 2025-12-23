@@ -140,13 +140,13 @@ interface ScrollRevealProps {
 
 const ScrollReveal = React.forwardRef<HTMLDivElement, ScrollRevealProps>(
   function ScrollReveal({ children, progress, variants, className }, ref) {
-    const opacity = useTransform(progress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+    const opacity = useTransform(progress, [0, 0.2, 0.8, 1], [0, 1, 1, 1]);
 
-    const y = useTransform(progress, [0, 0.2, 0.8, 1], [
+    const y = useTransform(progress, [0, 0.2, 0.5, 1], [
       typeof variants.initial.y === 'number' ? variants.initial.y : 0,
       0,
       0,
-      typeof variants.exit.y === 'number' ? variants.exit.y : 0
+      -100
     ]);
 
     const x = useTransform(progress, [0, 0.2, 0.8, 1], [

@@ -181,7 +181,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative py-20">
+      <section className="relative bg-brand-blue/30 py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="slideLeft">
             <div className="flex items-end justify-between gap-6">

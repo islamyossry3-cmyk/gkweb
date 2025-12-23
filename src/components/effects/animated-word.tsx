@@ -24,7 +24,7 @@ export function AnimatedWord() {
   }, []);
 
   return (
-    <span className="relative inline-block overflow-visible" style={{ padding: '0.2em 0' }}>
+    <span className="relative inline-block overflow-visible" style={{ padding: '0' }}>
       <AnimatePresence mode="wait">
         <motion.span
           key={currentIndex}

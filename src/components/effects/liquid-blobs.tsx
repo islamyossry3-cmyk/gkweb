@@ -74,7 +74,7 @@ export function LiquidBlobs({ className, count = 15 }: { className?: string; cou
         element.style.background = `radial-gradient(circle at center, ${color} 0%, ${color} 15%, transparent 60%)`;
         element.style.willChange = 'transform';
         element.style.pointerEvents = 'none';
-        element.style.opacity = '0.6';
+        element.style.opacity = '0.2';
 
         container.appendChild(element);
         blobElementsRef.current.push(element);
