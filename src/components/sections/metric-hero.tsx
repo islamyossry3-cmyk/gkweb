@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -48,15 +47,7 @@ export function MetricHero() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden pt-16">
-      <Image
-        src="/hero-bg.jpg"
-        alt=""
-        fill
-        priority
-        quality={85}
-        className="object-cover"
-      />
+    <section className="relative h-screen overflow-hidden pt-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
 
       {LAYERS_DATA.map((layer) => {
         const moveX = mousePos.x * layer.speed * 100;

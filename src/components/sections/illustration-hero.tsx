@@ -18,15 +18,7 @@ export function IllustrationHero({
   primaryCta?: { label: string; href: string };
 }) {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-20">
-      <Image
-        src="/hero-bg.jpg"
-        alt=""
-        fill
-        priority
-        quality={85}
-        className="object-cover"
-      />
+    <section className="relative min-h-screen overflow-hidden pt-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="absolute inset-0 bg-brand-dark/40 z-0" />
       <div className="noise-overlay z-0" />
       <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl z-0" />
